@@ -27,11 +27,10 @@ pypy -m pip install beautifulsoup4 construct cryptography requests
 pypy get_airtunesd.py
 ```
 
-
 Then you're ready to run *Slave in the Magic Mirror*!
 
 ```
-pypy -m pip install biplist construct cryptography macholib zeroconf
+pypy -m pip install biplist macholib zeroconf
 
 pypy airplay.py
 ```
@@ -39,6 +38,20 @@ pypy airplay.py
 Start AirPlay on your device and hopefully you'll get something like this:
 
 ![screenshot](https://i.imgur.com/w5hEgsT.png)
+
+
+Please note: if you're running into this issue while installing on OSX: 
+
+```
+    build/temp.macosx-10.11-x86_64-2.7/_openssl.c:483:10: fatal error: 'openssl/opensslv.h' file not found
+```
+
+Then try: 
+
+```
+pypy -m pip install beautifulsoup4 construct cryptography requests  --global-option=build_ext --global-option="-L/usr/local/opt/openssl/lib" --global-option="-I/usr/local/opt/openssl/include"
+```
+
 
 
 Known Issues
